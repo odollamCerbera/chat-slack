@@ -48,10 +48,11 @@ export default {
         invalidRange: 'От 3 до 20 символов',
         minLength: 'Не менее 6 символов',
         requiredField: 'Обязательное поле',
-        misMatch: 'Пароли должны совпадать',
+        passwordMismatch: 'Пароли должны совпадать',
       },
       system: {
         invalidData: 'Неверные имя пользователя или пароль',
+        alreadyExists: 'Такой пользователь уже существует', // 409, если user с таким login уже существует
         connection: 'Ошибка соединения',
         serverError: 'Сервер не отвечает',
         unknown: 'Неизвестная ошибка',

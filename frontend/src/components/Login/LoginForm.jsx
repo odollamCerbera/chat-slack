@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../slices/authSlice.js'
-import { getLoginSchema } from '../../utils/validators.js'
+import { getLoginSchema } from '../../utils/loginShema.js'
 import FormField from '../FormField.jsx'
 
 const LoginForm = () => {

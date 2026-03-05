@@ -23,7 +23,7 @@ const SignupForm = () => {
       />
 
       <FormField
-        name='password'
+        name='confirmPassword'
         label={t('signupPage.passwordRepeat')}
         type='password'
       />

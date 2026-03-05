@@ -1,4 +1,4 @@
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import LoginCard from '../components/Login/LoginCard'
 
 const LoginPage = () => (

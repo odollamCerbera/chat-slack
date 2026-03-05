@@ -1,4 +1,4 @@
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import NotFound from '../components/404/NotFound'
 
 const NotFoundPage = () => (

@@ -43,7 +43,6 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // Если user нажал на кнопку выхода, то очищаю данные и сбрасываю ошибку
     logout: (state) => {
       state.user = null
       state.token = null
@@ -52,11 +51,7 @@ const authSlice = createSlice({
       localStorage.removeItem('user')
       localStorage.removeItem('token')
     },
-    clearError: (state) => {
-      state.error = null
-    },
   },
-  // По сути реакция на действия, которые создаёт thunk login:
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
@@ -80,6 +75,6 @@ const authSlice = createSlice({
   },
 })
 
-export const { logout, clearError } = authSlice.actions
+export const { logout } = authSlice.actions
 
 export default authSlice.reducer

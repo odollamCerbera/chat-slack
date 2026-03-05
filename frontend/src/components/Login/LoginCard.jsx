@@ -23,7 +23,6 @@ const LoginCard = () => {
               </Col>
 
             </Card.Body>
-
             <LoginFooter />
           </Card>
         </Col>
