@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { clearError } from '../../slices/authSlice.js'
 import { login } from '../../slices/authThunks.js'
+import { getErrorMessage } from '../../utils/errorMessage.js'
 import { getLoginSchema } from '../../utils/loginShema.js'
+import { ROUTES } from '../../utils/routes.js'
 import FormField from '../FormField.jsx'
 
 const LoginForm = () => {
@@ -22,7 +24,7 @@ const LoginForm = () => {
       validationSchema={getLoginSchema(t)}
       onSubmit={async (values) => {
         const result = await dispatch(login(values))
-        if (login.fulfilled.match(result)) navigate('/')
+        if (login.fulfilled.match(result)) navigate(ROUTES.HOME)
       }}
     >
       {({ handleSubmit }) => (
@@ -44,7 +46,7 @@ const LoginForm = () => {
 
           {error && (
             <Alert variant='danger'>
-              {t(error)}
+              {t(getErrorMessage(error.response?.status))}
             </Alert>
           )}
 

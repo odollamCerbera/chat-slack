@@ -1,11 +1,6 @@
-import Header from '../components/Header/Header'
 import SignupCard from '../components/Signup/SignupCard'
+import Page from '../components/PageWrapper'
 
-const SignupPage = () => (
-  <div className='d-flex flex-column h-100'>
-    <Header />
-    <SignupCard />
-  </div>
-)
+const SignupPage = () => <Page><SignupCard /></Page>
 
 export default SignupPage

@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getErrorMessage } from '../utils/errorMessage.js'
 import { login, register } from './authThunks.js'
 
 const initialState = {
@@ -15,7 +14,7 @@ const handlePending = (state) => {
   state.error = null
 }
 
-const handlefulfilled = (state, action) => {
+const handleFulfilled = (state, action) => {
   state.loading = false
   state.token = action.payload.token
   state.user = action.payload.user || null
@@ -28,7 +27,7 @@ const handlefulfilled = (state, action) => {
 
 const handleRejected = (state, action) => {
   state.loading = false
-  state.error = getErrorMessage(action.payload)
+  state.error = action.payload
 }
 
 const authSlice = createSlice({
@@ -50,10 +49,10 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, handlePending)
-      .addCase(login.fulfilled, handlefulfilled)
+      .addCase(login.fulfilled, handleFulfilled)
       .addCase(login.rejected, handleRejected)
       .addCase(register.pending, handlePending)
-      .addCase(register.fulfilled, handlefulfilled)
+      .addCase(register.fulfilled, handleFulfilled)
       .addCase(register.rejected, handleRejected)
   },
 })

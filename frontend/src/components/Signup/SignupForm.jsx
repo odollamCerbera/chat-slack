@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { clearError } from '../../slices/authSlice.js'
 import { register } from '../../slices/authThunks.js'
+import { ROUTES } from '../../utils/routes.js'
 import { getSignupSchema } from '../../utils/signupShema.js'
 import FormField from '../FormField.jsx'
+import { getErrorMessage } from '../../utils/errorMessage.js'
 
 const SignupForm = () => {
   const { t } = useTranslation()
@@ -25,7 +27,7 @@ const SignupForm = () => {
           username: values.username,
           password: values.password,
         }))
-        if (register.fulfilled.match(result)) navigate('/')
+        if (register.fulfilled.match(result)) navigate(ROUTES.HOME)
       }}
     >
       {({ handleSubmit }) => (
@@ -53,7 +55,7 @@ const SignupForm = () => {
 
           {error && (
             <Alert variant='danger'>
-              {t(error)}
+              {t(getErrorMessage(error.response?.status))}
             </Alert>
           )}
 

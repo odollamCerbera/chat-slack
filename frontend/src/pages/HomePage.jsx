@@ -1,11 +1,6 @@
-import Header from '../components/Header/Header'
 import ChatHome from '../components/Chat/ChatHome'
+import Page from '../components/PageWrapper'
 
-const HomePage = () => (
-  <div className='d-flex flex-column h-100'>
-    <Header />
-    <ChatHome />
-  </div>
-)
+const HomePage = () => <Page><ChatHome /></Page>
 
 export default HomePage

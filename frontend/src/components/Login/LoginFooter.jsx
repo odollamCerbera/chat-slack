@@ -1,7 +1,7 @@
 import { Card } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ROUTES } from '../../utils/routes'
 
 const LoginFooter = () => {
   const { t } = useTranslation()
@@ -9,7 +9,7 @@ const LoginFooter = () => {
 
   const handleNavigation = (e) => {
     e.preventDefault()
-    navigate('/signup')
+    navigate(ROUTES.SIGNUP)
   }
 
   return (
