@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchMessages } from './chatThunks'
+import { fetchMessages } from '../thunks/chatThunks'
 
 const messagesSlice = createSlice({
   name: 'messages',

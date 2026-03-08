@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { login, register } from './authThunks.js'
+import { login, register } from '../thunks/authThunks'
 
 const initialState = {
   user: JSON.parse(localStorage.getItem('user')) || null,

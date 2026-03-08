@@ -4,16 +4,16 @@ import { Alert, Button, Form } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { clearError } from '../../slices/authSlice.js'
-import { register } from '../../slices/authThunks.js'
+import { clearError } from '../../slices/slices/authSlice'
+import { register } from '../../slices/thunks/authThunks'
+import { getErrorMessage } from '../../utils/errorMessage'
 import { ROUTES } from '../../utils/routes.js'
-import { getSignupSchema } from '../../utils/signupShema.js'
-import FormField from '../FormField.jsx'
-import { getErrorMessage } from '../../utils/errorMessage.js'
+import { getSignupSchema } from '../../utils/shema/signupShema'
+import FormField from '../FormField'
 
 const SignupForm = () => {
   const { t } = useTranslation()
-  const { loading, error } = useSelector((state) => state.auth)
+  const { loading, error } = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   useEffect(() => { dispatch(clearError()) }, [dispatch])
@@ -55,7 +55,7 @@ const SignupForm = () => {
 
           {error && (
             <Alert variant='danger'>
-              {t(getErrorMessage(error.response?.status))}
+              {t(getErrorMessage(error))}
             </Alert>
           )}
 

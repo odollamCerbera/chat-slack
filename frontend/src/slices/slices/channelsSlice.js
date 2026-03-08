@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchChannels } from './chatThunks'
+import { fetchChannels } from '../thunks/chatThunks'
 
 const channelsSlice = createSlice({
   name: 'channels',
   initialState: {
-    entities: [], // массив каналов
-    currentChannelId: null, // Для переключения между каналами (менять класс активного канала)
-    loading: 'idle', // 'idle' - при инициализации -'pending', 'succeeded', 'failed' - как обычно
+    entities: [],
+    currentChannelId: null,
+    loading: 'idle',
     error: null,
   },
   reducers: {
@@ -22,7 +22,7 @@ const channelsSlice = createSlice({
       })
       .addCase(fetchChannels.fulfilled, (state, action) => {
         state.loading = 'succeeded'
-        state.entities = action.payload;
+        state.entities = action.payload
         // Если текущий канал ещё не выбран и есть каналы, выбираем первый
         if (!state.currentChannelId && action.payload.length > 0) {
           state.currentChannelId = action.payload[0].id

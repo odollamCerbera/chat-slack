@@ -23,9 +23,10 @@ export default {
       signup: 'Регистрация',
       signup_btn: 'Зарегистрироваться',
     },
-    chat: {
+    channels: {
       channel: 'Имя канала',
       channels: 'Каналы',
+      channelPrefix: '#',
       createChannel: '+',
       controlChannel: 'Управление каналом',
       renameChannel: 'Переименовать',
@@ -37,11 +38,10 @@ export default {
     messages: {
       newMessage: 'Введите сообщение...',
       send: 'Отправить',
-      counter: {
-        count_one: '{{ count }} сообщение',
-        count_few: '{{ count }} сообщения',
-        count_many: '{{ count }} сообщений',
-      },
+      messagePrefix: ': ',
+      count_one: '{{ count }} сообщение',
+      count_few: '{{ count }} сообщения',
+      count_many: '{{ count }} сообщений',
     },
     errors: {
       validation: {
@@ -58,5 +58,5 @@ export default {
         unknown: 'Неизвестная ошибка',
       },
     },
-  },
+  }
 }

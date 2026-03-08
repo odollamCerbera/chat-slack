@@ -1,7 +1,7 @@
+import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import { Form, Button, InputGroup } from 'react-bootstrap'
 
-// Здесь нужно реализовать отображение названия актуального канала и кол-во сообщений в чате
+// Здесь нужно реализовать отправку сообщений по клику
 const ChatForm = () => {
   const { t } = useTranslation()
 

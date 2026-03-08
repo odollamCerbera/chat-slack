@@ -1,5 +1,5 @@
-export const getErrorMessage = (status) => {
-  switch (status) {
+export const getErrorMessage = (errorStatus) => {
+  switch (errorStatus) {
     case 0:
       return 'errors.system.connection'
     case 401:
