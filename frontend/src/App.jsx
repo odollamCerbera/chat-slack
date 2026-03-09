@@ -1,20 +1,54 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
 import SignupPage from './pages/SignupPage'
+import { selectIsAuthenticated } from './slices/selectors'
+import { addChannel, removeChannel, renameChannel } from './slices/slices/channelsSlice'
+import { addMessage } from './slices/slices/messagesSlice'
+import socket from './socket'
 import { ROUTES } from './utils/routes'
 
-// Проверяем, есть ли токен. Если нет, то перенаправляем на страницу логина
 const PrivateRoute = ({ children }) => {
-  const { isAuthenticated } = useSelector((state) => state.auth)
+  const isAuthenticated = useSelector(selectIsAuthenticated)
   return isAuthenticated ? children : <Navigate to={ROUTES.LOGIN} />
 }
 
-// Настраиваем маршрутизацию
 const App = () => {
+  const dispatch = useDispatch()
+  const isAuthenticated = useSelector(selectIsAuthenticated)
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      socket.disconnect()
+      return
+    }
+
+    socket.connect()
+
+    const handleNewMessage = (message) => dispatch(addMessage(message))
+    const handleNewChannel = (channel) => dispatch(addChannel(channel))
+    const handleRemoveChannel = ({ id }) => dispatch(removeChannel(id))
+    const handleRenameChannel = (channel) => dispatch(renameChannel(channel))
+
+    socket.on('newMessage', handleNewMessage)
+    socket.on('newChannel', handleNewChannel)
+    socket.on('removeChannel', handleRemoveChannel)
+    socket.on('renameChannel', handleRenameChannel)
+
+    return () => {
+      socket.off('newMessage', handleNewMessage)
+      socket.off('newChannel', handleNewChannel)
+      socket.off('removeChannel', handleRemoveChannel)
+      socket.off('renameChannel', handleRenameChannel)
+      socket.disconnect()
+    }
+  }, [isAuthenticated, dispatch])
+
   return (
     <BrowserRouter>
       <Routes>

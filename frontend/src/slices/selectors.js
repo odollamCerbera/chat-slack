@@ -1,5 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit'
 
+export const selectToken = (state => state.auth.token)
+export const selectUsername = (state => state.auth.username)
+export const selectIsAuthenticated = (state => state.auth.isAuthenticated)
+
 export const selectChannels = (state => state.channels.entities)
 export const selectCurrentChannelId = (state => state.channels.currentChannelId)
 export const selectChannelsLoading = (state => state.channels.loading)
@@ -29,7 +33,7 @@ export const selectMessagesByCurrentChannel = createSelector(
   [selectMessages, selectCurrentChannelId],
   (messages, currentId) => {
     if (!currentId || !messages.length) return []
-    return messages.filter((msg) => msg.channelId === currentId)
+    return messages.filter(message => message.channelId === currentId)
   }
 )
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchMessages } from '../thunks/chatThunks'
+import { fetchMessages, sendMessage } from '../thunks/messageThunk'
 
 const messagesSlice = createSlice({
   name: 'messages',
@@ -7,8 +7,14 @@ const messagesSlice = createSlice({
     entities: [],
     loading: 'idle',
     error: null,
+    sending: false,
+    sendError: null,
   },
-  reducers: {},
+  reducers: {
+    addMessage(state, action) {
+      state.entities.push(action.payload)
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMessages.pending, (state) => {
@@ -23,7 +29,19 @@ const messagesSlice = createSlice({
         state.loading = 'failed'
         state.error = action.payload
       })
+      .addCase(sendMessage.pending, (state) => {
+        state.sending = true
+        state.sendError = null
+      })
+      .addCase(sendMessage.fulfilled, (state) => {
+        state.sending = false
+      })
+      .addCase(sendMessage.rejected, (state, action) => {
+        state.sending = false
+        state.sendError = action.payload
+      })
   },
 })
 
+export const { addMessage } = messagesSlice.actions
 export default messagesSlice.reducer

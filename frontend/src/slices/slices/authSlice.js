@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { login, register } from '../thunks/authThunks'
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
+  username: JSON.parse(localStorage.getItem('username')) || null,
   token: localStorage.getItem('token') || null,
   isAuthenticated: !!localStorage.getItem('token'),
   loading: false,
@@ -17,11 +17,11 @@ const handlePending = (state) => {
 const handleFulfilled = (state, action) => {
   state.loading = false
   state.token = action.payload.token
-  state.user = action.payload.user || null
+  state.username = action.payload.username || null
   state.isAuthenticated = true
   localStorage.setItem('token', action.payload.token)
-  if (action.payload.user) {
-    localStorage.setItem('user', JSON.stringify(action.payload.user))
+  if (action.payload.username) {
+    localStorage.setItem('username', JSON.stringify(action.payload.username))
   }
 }
 
@@ -35,11 +35,11 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.user = null
+      state.username = null
       state.token = null
       state.isAuthenticated = false
       state.error = null
-      localStorage.removeItem('user')
+      localStorage.removeItem('username')
       localStorage.removeItem('token')
     },
     clearError: (state) => {
@@ -58,5 +58,4 @@ const authSlice = createSlice({
 })
 
 export const { logout, clearError } = authSlice.actions
-
 export default authSlice.reducer
