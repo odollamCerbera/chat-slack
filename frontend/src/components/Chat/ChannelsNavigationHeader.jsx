@@ -1,18 +1,23 @@
+import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { TbSquarePlus } from 'react-icons/tb'
+import AddChannelModal from './AddChannelModal'
 
-// Здесь нужно реализовать добавление каналов при клике на кнопку
 const ChannelsNavigationHeader = () => {
   const { t } = useTranslation()
+  const [showModal, setShowModal] = useState(false)
+
+  const handleOpen = () => setShowModal(true)
+  const handleClose = () => setShowModal(false)
 
   return (
     <div className='d-flex mt-1 justify-content-between mb-2 ps-4 pe-2 p-4'>
       <b>{t('channels.channels')}</b>
-      <Button variant='link' className='p-0 text-primary btn-group-vertical'>
+      <Button onClick={handleOpen} variant='link' className='p-0 text-primary btn-group-vertical'>
         <TbSquarePlus size={25} strokeWidth={1} />
-        <span className='visually-hidden'>{t('channels.createChannel')}</span>
       </Button>
+      <AddChannelModal show={showModal} onHide={handleClose} />
     </div>
   )
 }

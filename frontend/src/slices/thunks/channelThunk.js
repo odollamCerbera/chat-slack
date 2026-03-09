@@ -33,7 +33,7 @@ export const createChannel = createAsyncThunk(
         { name },
         { headers: { Authorization: `Bearer ${token}` } }
       )
-      toast.success(t('channels.channelCreated'))
+      toast.success(i18n.t('channels.channelCreated'))
     } catch (error) {
       const errorMessage = getErrorMessage(error.response?.status)
       toast.error(i18n.t(errorMessage))
@@ -48,12 +48,13 @@ export const renameChannel = createAsyncThunk(
   async ({ id, name }, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      await axios.patch(
+      const response = await axios.patch(
         `/api/v1/channels/${id}`,
         { name },
         { headers: { Authorization: `Bearer ${token}` } }
       )
-      toast.success(t('channels.channelRenamed'))
+      toast.success(i18n.t('channels.channelRenamed'))
+      return response.data
     } catch (error) {
       const errorMessage = getErrorMessage(error.response?.status)
       toast.error(i18n.t(errorMessage))
@@ -68,10 +69,11 @@ export const removeChannel = createAsyncThunk(
   async (id, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      await axios.delete(`/api/v1/channels/${id}`, {
+      const response = await axios.delete(`/api/v1/channels/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       toast.success(t('channels.channelDeleted'))
+      return response.data
     } catch (error) {
       const errorMessage = getErrorMessage(error.response?.status)
       toast.error(i18n.t(errorMessage))

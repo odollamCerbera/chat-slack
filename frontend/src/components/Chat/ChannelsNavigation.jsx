@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectChannels, selectCurrentChannelId } from '../../slices/selectors'
 import { setCurrentChannel } from '../../slices/slices/channelsSlice'
 
-// Здесь нужно будет отображать новые каналы с кнопкой для удаления и переименования (модалка)
+// Здесь нужно будет отображать новые каналы с кнопкой для выпадающего меню
 const ChannelsNavigation = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()

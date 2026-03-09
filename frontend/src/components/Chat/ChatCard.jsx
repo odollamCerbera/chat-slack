@@ -41,7 +41,6 @@ const ChatCard = () => {
           <ChannelsNavigationHeader />
           <ChannelsNavigation />
         </Col>
-
         <Col className='p-0 h-100'>
           <div className='d-flex flex-column h-100'>
             <ChatHeader />

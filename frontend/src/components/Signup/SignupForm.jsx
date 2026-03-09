@@ -8,7 +8,7 @@ import { clearError } from '../../slices/slices/authSlice'
 import { register } from '../../slices/thunks/authThunks'
 import { getErrorMessage } from '../../utils/errorMessage'
 import { ROUTES } from '../../utils/routes.js'
-import { getSignupSchema } from '../../utils/shema/signupShema'
+import { getSignupSchema } from '../../utils/schema/signupSchema.js'
 import FormField from '../FormField'
 
 const SignupForm = () => {

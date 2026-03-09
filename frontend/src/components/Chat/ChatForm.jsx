@@ -29,7 +29,9 @@ const ChatForm = () => {
     try {
       await dispatch(sendMessage({ body: message.trim(), channelId: currentChannelId, username })).unwrap()
       setMessage('')
+      inputRef.current?.focus()
     } catch (error) {
+
     } finally {
       setSending(false)
     }
@@ -52,7 +54,6 @@ const ChatForm = () => {
 
           <Button type='submit' variant='outline-secondary' className='btn-group-vertical' disabled={sending}>
             <TbSquareArrowRight size={25} strokeWidth={1} />
-            <span className='visually-hidden'>{t('messages.send')}</span>
           </Button>
         </InputGroup>
       </Form>

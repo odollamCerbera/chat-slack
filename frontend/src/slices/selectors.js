@@ -28,6 +28,12 @@ export const selectCurrentChannelName = createSelector(
   (channel) => channel?.name
 )
 
+// Возвращает массив названий каналов
+export const selectChannelsNames = createSelector(
+  [selectChannels],
+  (channels) => channels.map((channel) => channel.name)
+)
+
 // Возвращает массив сообщений текущего канала
 export const selectMessagesByCurrentChannel = createSelector(
   [selectMessages, selectCurrentChannelId],

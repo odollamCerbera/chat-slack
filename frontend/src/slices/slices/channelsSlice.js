@@ -23,8 +23,8 @@ const channelsSlice = createSlice({
       state.currentChannelId = action.payload
     },
     addChannel(state, action) {
-      // Переход на него при создании
       state.entities.push(action.payload)
+      state.currentChannelId = action.payload.id
     },
     removeChannel(state, action) {
       const id = action.payload
