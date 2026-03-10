@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { TbSquarePlus } from 'react-icons/tb'
-import AddChannelModal from './AddChannelModal'
+import AddChannelModal from '../Modal/AddChannelModal'
 
 const ChannelsNavigationHeader = () => {
   const { t } = useTranslation()

@@ -67,7 +67,7 @@ export const removeChannel = createAsyncThunk(
       const response = await axios.delete(`/api/v1/channels/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      toast.success(t('channels.channelDeleted'))
+      toast.success(t('channels.channelRemoved'))
     } catch (error) {
       toast.error(i18n.t('errors.notifications.removeChannel'))
       return rejectWithValue(error.response?.status)

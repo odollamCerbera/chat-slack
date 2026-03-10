@@ -1,6 +1,6 @@
 import { Card, Col, Container, Image, Row } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import avatarLoginPage from '../../assets/avatar-LoginPage.jpg'
+import avatarLoginPage from '../../assets/avatar-loginPage.jpg'
 import LoginFooter from './LoginFooter'
 import LoginForm from './LoginForm'
 

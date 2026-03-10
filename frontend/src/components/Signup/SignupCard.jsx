@@ -1,6 +1,6 @@
 import { Card, Col, Container, Image, Row } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import avatarSignupPage from '../../assets/avatar-SignupPage.jpg'
+import avatarSignupPage from '../../assets/avatar-signupPage.jpg'
 import SignupForm from './SignupForm'
 
 const SignupCard = () => {
