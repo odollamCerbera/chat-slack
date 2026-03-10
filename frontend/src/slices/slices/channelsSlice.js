@@ -54,7 +54,6 @@ const channelsSlice = createSlice({
       .addCase(fetchChannels.fulfilled, (state, action) => {
         state.loading = 'succeeded'
         state.entities = action.payload
-        // Если текущий канал ещё не выбран и есть каналы, выбираем дефолтный
         if (!state.currentChannelId && action.payload.length > 0) {
           state.currentChannelId = action.payload[0].id
         }
@@ -106,4 +105,5 @@ export const {
   renameChannel,
   clearOperationError
 } = channelsSlice.actions
+
 export default channelsSlice.reducer

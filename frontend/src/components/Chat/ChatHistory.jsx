@@ -20,8 +20,7 @@ const ChatHistory = () => {
           <span className='me-1'>{t('messages.messagePrefix')}</span>
           {message.body}
         </div>
-      ))
-      }
+      ))}
     </Container>
   )
 }

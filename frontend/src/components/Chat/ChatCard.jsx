@@ -10,7 +10,6 @@ import ChatForm from './ChatForm'
 import ChatHeader from './ChatHeader'
 import ChatHistory from './ChatHistory'
 
-
 const ChatCard = () => {
   const dispatch = useDispatch()
   const { isAuthenticated } = useSelector(state => state.auth)

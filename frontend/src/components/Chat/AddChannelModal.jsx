@@ -27,8 +27,7 @@ const AddChannelModal = ({ show, onHide }) => {
             const cleanName = leoProfanity.clean(values.name.trim())
             await dispatch(createChannel(cleanName)).unwrap()
             onHide()
-          }
-          finally {
+          } finally {
             setSubmitting(false)
           }
         }}

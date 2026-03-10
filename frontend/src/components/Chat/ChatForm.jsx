@@ -26,7 +26,11 @@ const ChatForm = () => {
 
     setSending(true)
     try {
-      await dispatch(sendMessage({ body: leoProfanity.clean(message.trim()), channelId: currentChannelId, username })).unwrap()
+      await dispatch(sendMessage({
+        body: leoProfanity.clean(message.trim()),
+        channelId: currentChannelId,
+        username
+      })).unwrap()
       setMessage('')
       inputRef.current?.focus()
     } finally {

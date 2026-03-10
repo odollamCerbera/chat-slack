@@ -16,6 +16,7 @@ const LogoutButton = () => {
     dispatch(logout())
     navigate(ROUTES.LOGIN)
   }
+
   return !isAuthenticated ? null : (
     <Button className='btn btn-primary' onClick={handleLogout}>
       {t('authorization.logout')}

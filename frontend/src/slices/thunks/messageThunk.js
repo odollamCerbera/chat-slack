@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import i18n from '../../i18n'
-import { getErrorMessage } from '../../utils/errorMessage'
 
 export const fetchMessages = createAsyncThunk(
   'messages/fetchMessages',
@@ -14,8 +13,7 @@ export const fetchMessages = createAsyncThunk(
       })
       return response.data
     } catch (error) {
-      const errorMessage = getErrorMessage(error.response?.status)
-      toast.error(i18n.t(errorMessage))
+      toast.error(i18n.t('errors.notifications.fetchMessages'))
       return rejectWithValue(error.response?.status)
     }
   }
@@ -32,8 +30,7 @@ export const sendMessage = createAsyncThunk(
         { headers: { Authorization: `Bearer ${token}` } }
       )
     } catch (error) {
-      const errorMessage = getErrorMessage(error.response?.status)
-      toast.error(i18n.t(errorMessage))
+      toast.error(i18n.t('errors.notifications.addMessage'))
       return rejectWithValue(error.response?.status)
     }
   }
