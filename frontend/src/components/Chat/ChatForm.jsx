@@ -1,11 +1,11 @@
+import { selectCurrentChannelId, selectUsername } from '@store/selectors'
+import { sendMessage } from '@thunks/messageThunk'
+import leoProfanity from '@utils/profanity'
 import { useEffect, useRef, useState } from 'react'
 import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { TbSquareArrowRight } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectCurrentChannelId, selectUsername } from '../../slices/selectors'
-import { sendMessage } from '../../slices/thunks/messageThunk'
-import leoProfanity from '../../utils/profanity'
 
 const ChatForm = () => {
   const { t } = useTranslation()

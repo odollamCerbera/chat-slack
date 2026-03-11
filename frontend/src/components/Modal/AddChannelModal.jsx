@@ -1,12 +1,12 @@
+import { selectChannelsNames } from '@store/selectors'
+import { createChannel } from '@thunks/channelThunk'
+import leoProfanity from '@utils/profanity'
+import { getChannelSchema } from '@utils/schema/channelSchema'
 import { Formik } from 'formik'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectChannelsNames } from '../../slices/selectors'
-import { createChannel } from '../../slices/thunks/channelThunk'
-import { getChannelSchema } from '../../utils/schema/channelSchema'
-import FormField from '../FormField'
-import leoProfanity from '../../utils/profanity'
+import FormField from '../Ui/FormField'
 
 const AddChannelModal = ({ show, onHide }) => {
   const { t } = useTranslation()

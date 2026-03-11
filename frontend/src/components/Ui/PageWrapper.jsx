@@ -1,4 +1,4 @@
-import Header from './Header/Header'
+import Header from '../Header/Header'
 
 const Page = ({ children }) => (
   <div className='d-flex flex-column h-100'>

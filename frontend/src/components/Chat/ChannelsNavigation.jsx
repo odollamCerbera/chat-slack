@@ -1,9 +1,8 @@
-import { Button, Nav, ButtonGroup, Dropdown } from 'react-bootstrap'
+import { setCurrentChannel } from '@slices/channelsSlice'
+import { selectChannels, selectCurrentChannelId } from '@store/selectors'
+import { Button, Nav } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectChannels, selectCurrentChannelId } from '../../slices/selectors'
-import { setCurrentChannel } from '../../slices/slices/channelsSlice'
-import { removeChannel, renameChannel } from '../../slices/thunks/channelThunk'
 import ChannelActions from './ChannelActions'
 
 /*

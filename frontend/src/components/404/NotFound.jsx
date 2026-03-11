@@ -1,7 +1,7 @@
+import imageNotFound from '@assets/404NotFoundPage.svg'
+import { ROUTES } from '@utils/routes'
 import { Container, Image } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import imageNotFound from '../../assets/404-NotFoundPage.svg'
-import { ROUTES } from '../../utils/routes'
 
 const NotFound = () => {
   const { t } = useTranslation()

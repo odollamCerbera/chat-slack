@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchMessages, sendMessage } from '../thunks/messageThunk'
+import { fetchMessages, sendMessage } from '@thunks/messageThunk'
 
 const messagesSlice = createSlice({
   name: 'messages',

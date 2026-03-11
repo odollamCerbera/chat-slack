@@ -1,15 +1,15 @@
+import { clearError } from '@slices/authSlice'
+import { login } from '@thunks/authThunks'
+import { getErrorMessage } from '@utils/errorMessage'
+import { ROUTES } from '@utils/routes'
+import { getLoginSchema } from '@utils/schema/loginSchema'
 import { Formik } from 'formik'
 import { useEffect } from 'react'
 import { Alert, Button, Form } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { clearError } from '../../slices/slices/authSlice'
-import { login } from '../../slices/thunks/authThunks.js'
-import { getErrorMessage } from '../../utils/errorMessage'
-import { ROUTES } from '../../utils/routes.js'
-import { getLoginSchema } from '../../utils/schema/loginSchema'
-import FormField from '../FormField'
+import FormField from '../Ui/FormField'
 
 const LoginForm = () => {
   const { t } = useTranslation()

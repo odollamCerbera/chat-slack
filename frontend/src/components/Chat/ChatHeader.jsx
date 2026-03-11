@@ -1,6 +1,6 @@
+import { selectCurrentChannelName, selectMessagesCount } from '@store/selectors'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { selectCurrentChannelName, selectMessagesCount } from '../../slices/selectors'
 
 const ChatHeader = () => {
   const { t } = useTranslation()

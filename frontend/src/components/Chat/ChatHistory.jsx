@@ -1,8 +1,8 @@
+import { selectMessagesByCurrentChannel } from '@store/selectors'
 import { useEffect, useRef } from 'react'
 import { Container } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { selectMessagesByCurrentChannel } from '../../slices/selectors'
 
 const ChatHistory = () => {
   const { t } = useTranslation()

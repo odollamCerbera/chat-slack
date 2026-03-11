@@ -4,7 +4,7 @@ import {
   fetchChannels,
   removeChannel as removeChannelThunk,
   renameChannel as renameChannelThunk,
-} from '../thunks/channelThunk'
+} from '@thunks/channelThunk'
 
 const channelsSlice = createSlice({
   name: 'channels',

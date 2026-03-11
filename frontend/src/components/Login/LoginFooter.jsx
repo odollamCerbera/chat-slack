@@ -1,7 +1,7 @@
+import { ROUTES } from '@utils/routes'
 import { Card } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../utils/routes'
 
 const LoginFooter = () => {
   const { t } = useTranslation()
