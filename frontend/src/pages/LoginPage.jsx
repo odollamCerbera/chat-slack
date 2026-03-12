@@ -1,5 +1,5 @@
 import LoginCard from '@components/Login/LoginCard'
-import Page from '@components/Ui/PageWrapper'
+import Page from '@components/Ui/Page'
 
 const LoginPage = () => <Page><LoginCard /></Page>
 

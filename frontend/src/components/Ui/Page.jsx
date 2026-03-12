@@ -1,8 +1,8 @@
-import Header from '../Header/Header'
+import NavbarPage from '../Header/NavbarPage'
 
 const Page = ({ children }) => (
   <div className='d-flex flex-column h-100'>
-    <Header />
+    <NavbarPage />
     {children}
   </div>
 )

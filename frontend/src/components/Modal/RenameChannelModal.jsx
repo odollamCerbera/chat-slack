@@ -15,8 +15,8 @@ const RenameChannelModal = () => {
   const dispatch = useDispatch()
   const existingChannels = useSelector(selectChannelsNames)
   const extraData = useSelector(state => state.modal.extraData)
-
   const modalRef = useRef(null)
+
   useEffect(() => {
     modalRef.current?.focus()
     modalRef.current?.select()
@@ -32,7 +32,7 @@ const RenameChannelModal = () => {
 
       <Formik
         initialValues={{ name: extraData.name }}
-        validationSchema={getChannelSchema(t, existingChannels)}
+        validationSchema={getChannelSchema(t, existingChannels, extraData.id)}
         validateOnChange={false}
         validateOnBlur={false}
         onSubmit={async (values, { setSubmitting }) => {

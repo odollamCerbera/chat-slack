@@ -26,12 +26,13 @@ export const createChannel = createAsyncThunk(
   async (name, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      await axios.post(
+      const response = await axios.post(
         '/api/v1/channels',
         { name },
         { headers: { Authorization: `Bearer ${token}` } }
       )
       toast.success(i18n.t('channels.channelCreated'))
+      return response.data
     } catch (error) {
       toast.error(i18n.t('errors.notifications.addChannel'))
       return rejectWithValue(error.response?.status)
@@ -68,7 +69,7 @@ export const removeChannel = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       })
       toast.success(i18n.t('channels.channelRemoved'))
-      return id // чтобы удалить и сообщения
+      return id
     } catch (error) {
       toast.error(i18n.t('errors.notifications.removeChannel'))
       console.log(error)

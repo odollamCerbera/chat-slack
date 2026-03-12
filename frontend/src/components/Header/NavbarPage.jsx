@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import LogoutButton from './LogoutButton'
 
-const Header = () => {
+const NavbarPage = () => {
   const { t } = useTranslation()
 
   return (
@@ -17,4 +17,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default NavbarPage

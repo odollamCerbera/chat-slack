@@ -6,10 +6,26 @@ import {
   renameChannel as renameChannelThunk,
 } from '@thunks/channelThunk'
 
-const handleRemoveChannel = (state, action) => {
-  const id = action.payload
-  state.entities = state.entities.filter(ch => ch.id !== id)
-  if (state.currentChannelId === id) {
+
+// Если канал с таким id уже добавлен, то не добавляем его. Если его нет - добавляем
+const handleAddChannel = (state, newChannel) => {
+  if (!state.entities.some(ch => ch.id === newChannel.id)) {
+    state.entities.push(channel)
+  }
+}
+
+// Находим канал по id в массиве. Если он существует, то обновляем
+const handleRenameChannel = (state, updatedChannel) => {
+  const index = state.entities.findIndex(ch => ch.id === updatedChannel.id)
+  if (index !== -1) {
+    state.entities[index] = updatedChannel
+  }
+}
+
+// Фильтруем массив каналов, удаляя канал по id. Если он активный, то перемещаем всех в дефолтный
+const handleRemoveChannel = (state, idChannel) => {
+  state.entities = state.entities.filter(ch => ch.id !== idChannel)
+  if (state.currentChannelId === idChannel) {
     state.currentChannelId = state.entities[0]?.id || null
   }
 }
@@ -31,23 +47,22 @@ const channelsSlice = createSlice({
       state.currentChannelId = action.payload
     },
     addChannel(state, action) {
-      state.entities.push(action.payload)
-      state.currentChannelId = action.payload.id
+      handleAddChannel(state, action.payload)
     },
     renameChannel(state, action) {
-      const updated = action.payload;
-      const index = state.entities.findIndex(ch => ch.id === updated.id)
-      if (index !== -1) {
-        state.entities[index] = updated
-      }
+      handleRenameChannel(state, action.payload)
     },
-    removeChannel: handleRemoveChannel,
+    removeChannel(state, action) {
+      handleRemoveChannel(state, action.payload)
+    },
     clearOperationError(state) {
       state.operationError = null
     },
   },
+
   extraReducers: (builder) => {
     builder
+      // *** Получение каналов ***
       .addCase(fetchChannels.pending, (state) => {
         state.loading = 'pending'
         state.error = null
@@ -55,6 +70,7 @@ const channelsSlice = createSlice({
       .addCase(fetchChannels.fulfilled, (state, action) => {
         state.loading = 'succeeded'
         state.entities = action.payload
+        // Если нет активного канала, то выбираем первый (дефолтный)
         if (!state.currentChannelId && action.payload.length > 0) {
           state.currentChannelId = action.payload[0].id
         }
@@ -63,17 +79,21 @@ const channelsSlice = createSlice({
         state.loading = 'failed'
         state.error = action.payload
       })
+      // *** Создание канала ***
       .addCase(createChannel.pending, (state) => {
         state.creating = true
         state.operationError = null
       })
-      .addCase(createChannel.fulfilled, (state) => {
+      .addCase(createChannel.fulfilled, (state, action) => {
         state.creating = false
+        handleAddChannel(state, action.payload)
+        state.currentChannelId = action.payload.id
       })
       .addCase(createChannel.rejected, (state, action) => {
         state.creating = false
         state.operationError = action.payload
       })
+      // *** Переименование канала ***
       .addCase(renameChannelThunk.pending, (state) => {
         state.renaming = true
         state.operationError = null
@@ -85,6 +105,7 @@ const channelsSlice = createSlice({
         state.renaming = false
         state.operationError = action.payload
       })
+      // *** Удаление канала ***
       .addCase(removeChannelThunk.pending, (state) => {
         state.removing = true
         state.operationError = null

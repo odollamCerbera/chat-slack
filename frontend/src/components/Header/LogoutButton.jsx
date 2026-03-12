@@ -18,7 +18,7 @@ const LogoutButton = () => {
   }
 
   return !isAuthenticated ? null : (
-    <Button className='btn btn-primary' onClick={handleLogout}>
+    <Button variant='primary' onClick={handleLogout}>
       {t('authorization.logout')}
     </Button>
   )

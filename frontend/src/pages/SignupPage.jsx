@@ -1,5 +1,5 @@
 import SignupCard from '@components/Signup/SignupCard'
-import Page from '@components/Ui/PageWrapper'
+import Page from '@components/Ui/Page'
 
 const SignupPage = () => <Page><SignupCard /></Page>
 
