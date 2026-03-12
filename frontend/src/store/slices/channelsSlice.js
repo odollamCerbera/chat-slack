@@ -10,7 +10,7 @@ import {
 // Если канал с таким id уже добавлен, то не добавляем его. Если его нет - добавляем
 const handleAddChannel = (state, newChannel) => {
   if (!state.entities.some(ch => ch.id === newChannel.id)) {
-    state.entities.push(channel)
+    state.entities.push(newChannel)
   }
 }
 

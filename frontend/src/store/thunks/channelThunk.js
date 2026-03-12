@@ -46,7 +46,7 @@ export const renameChannel = createAsyncThunk(
   async ({ id, name }, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const response = await axios.patch(
+      await axios.patch(
         `/api/v1/channels/${id}`,
         { name },
         { headers: { Authorization: `Bearer ${token}` } }
@@ -65,7 +65,7 @@ export const removeChannel = createAsyncThunk(
   async (id, { getState, rejectWithValue }) => {
     const token = getState().auth.token
     try {
-      const response = await axios.delete(`/api/v1/channels/${id}`, {
+      await axios.delete(`/api/v1/channels/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       toast.success(i18n.t('channels.channelRemoved'))
