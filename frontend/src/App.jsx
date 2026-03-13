@@ -24,6 +24,13 @@ const App = () => {
   const dispatch = useDispatch()
   const isAuthenticated = useSelector(selectIsAuthenticated)
 
+  ///////////////////////
+  useEffect(() => {
+    console.log('🔑 Rollbar token exists:', !!import.meta.env.VITE_ROLLBAR_ACCESS_TOKEN)
+    console.log('🌍 Environment:', import.meta.env.MODE)
+  }, [])
+  ///////////////////////
+
   useEffect(() => {
     if (!isAuthenticated) {
       socket.disconnect()
