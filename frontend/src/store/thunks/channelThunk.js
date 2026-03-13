@@ -14,11 +14,12 @@ export const fetchChannels = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       toast.error(i18n.t('errors.notifications.fetchChannels'))
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )
 
 // Создание канала (POST)
@@ -30,15 +31,16 @@ export const createChannel = createAsyncThunk(
       const response = await axios.post(
         ROUTES.CHANNELS(),
         { name },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       )
       toast.success(i18n.t('channels.channelCreated'))
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       toast.error(i18n.t('errors.notifications.addChannel'))
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )
 
 // Переименование канала (PATCH)
@@ -50,14 +52,15 @@ export const renameChannel = createAsyncThunk(
       await axios.patch(
         `${ROUTES.CHANNELS()}/${id}`,
         { name },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       )
       toast.success(i18n.t('channels.channelRenamed'))
-    } catch (error) {
+    }
+    catch (error) {
       toast.error(i18n.t('errors.notifications.renameChannel'))
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )
 
 // Удаление канала (DELETE)
@@ -71,10 +74,11 @@ export const removeChannel = createAsyncThunk(
       })
       toast.success(i18n.t('channels.channelRemoved'))
       return id
-    } catch (error) {
+    }
+    catch (error) {
       toast.error(i18n.t('errors.notifications.removeChannel'))
       console.log(error)
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )

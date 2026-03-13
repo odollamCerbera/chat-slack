@@ -12,11 +12,11 @@ const createThunk = (resourceName) => {
           password: password.trim(),
         })
         return response.data
-      } catch (error) {
-
+      }
+      catch (error) {
         return rejectWithValue(error.response?.status)
       }
-    }
+    },
   )
 }
 

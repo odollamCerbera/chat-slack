@@ -14,10 +14,10 @@ export const getChannelSchema = (t, channels, excludeId = null) => yup.object({
         if (excludedChannel && excludedChannel.name === newName) return true
       }
       // Проверяем есть ли среди остальных каналов канал с таким именем
-      const isNameUniqueAmongChannels = !channels.some(channel => {
+      const isNameUniqueAmongChannels = !channels.some((channel) => {
         return channel.id !== excludeId && channel.name === newName
       })
       return isNameUniqueAmongChannels
     })
-    .required(t('errors.validation.requiredField'))
+    .required(t('errors.validation.requiredField')),
 })

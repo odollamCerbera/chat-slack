@@ -1,20 +1,17 @@
 import { ROUTES } from '@utils/routes'
 import { Navbar } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
-import LogoutButton from './LogoutButton'
 import { useNavigate } from 'react-router-dom'
-
+import LogoutButton from './LogoutButton'
 
 const NavbarPage = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
 
   return (
-    <Navbar bg='white' variant='light' expand='lg' className='shadow-sm'>
-      <div className='container'>
-        <Navbar.Brand onClick={() => navigate(ROUTES.HOME)}
-          style={{ cursor: 'pointer' }}>
+    <Navbar bg="white" variant="light" expand="lg" className="shadow-sm">
+      <div className="container">
+        <Navbar.Brand onClick={() => navigate(ROUTES.HOME)} style={{ cursor: 'pointer' }}>
           {t('logo')}
         </Navbar.Brand>
         <LogoutButton />

@@ -40,7 +40,8 @@ const RenameChannelModal = () => {
             const cleanName = leoProfanity.clean(values.name.trim())
             await dispatch(renameChannel({ id: extraData.id, name: cleanName })).unwrap()
             handleClose()
-          } finally {
+          }
+          finally {
             setSubmitting(false)
           }
         }}
@@ -50,9 +51,9 @@ const RenameChannelModal = () => {
             <Modal.Body>
               <Form.Group>
                 <FormField
-                  name='name'
+                  name="name"
                   label={t('channels.channel')}
-                  type='text'
+                  type="text"
                   autoFocus
                   ref={modalRef}
                 />
@@ -60,11 +61,11 @@ const RenameChannelModal = () => {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button variant='secondary' onClick={handleClose} disabled={isSubmitting}>
+              <Button variant="secondary" onClick={handleClose} disabled={isSubmitting}>
                 {t('channels.cancel')}
               </Button>
 
-              <Button type='submit' variant='primary' disabled={isSubmitting}>
+              <Button type="submit" variant="primary" disabled={isSubmitting}>
                 {t('channels.send')}
               </Button>
             </Modal.Footer>

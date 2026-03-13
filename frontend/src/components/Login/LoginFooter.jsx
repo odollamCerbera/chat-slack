@@ -7,10 +7,12 @@ const LoginFooter = () => {
   const { t } = useTranslation()
 
   return (
-    <Card.Footer className='p-4'>
-      <div className='text-center'>
-        <span className='me-1'>{t('loginPage.noAccount')}</span>
-        <Link to={ROUTES.SIGNUP}>{t('authorization.signup')}</Link>
+    <Card.Footer className="p-4">
+      <div className="text-center">
+        <span className="me-1">{t('loginPage.noAccount')}</span>
+        <Link to={ROUTES.SIGNUP}>
+          {t('authorization.signup')}
+        </Link>
       </div>
     </Card.Footer>
   )

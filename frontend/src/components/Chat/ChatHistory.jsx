@@ -13,11 +13,13 @@ const ChatHistory = () => {
   }, [messages])
 
   return (
-    <Container ref={messagesRef} id='messages-box' className='chat-messages overflow-auto px-5'>
-      {messages.map((message) => (
-        <div className='text-break mb-2' key={message.id}>
+    <Container ref={messagesRef} id="messages-box" className="chat-messages overflow-auto px-5">
+      {messages.map(message => (
+        <div className="text-break mb-2" key={message.id}>
           <b>{message.username}</b>
-          <span className='me-1'>{t('messages.messagePrefix')}</span>
+          <span className="me-1">
+            {t('messages.messagePrefix')}
+          </span>
           {message.body}
         </div>
       ))}

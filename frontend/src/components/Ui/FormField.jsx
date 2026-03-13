@@ -5,7 +5,7 @@ const FormField = ({ name, label, type, placeholder, ...props }) => {
   const [field, meta] = useField(name)
 
   return (
-    <FloatingLabel controlId={name} label={label} className='mb-3'>
+    <FloatingLabel controlId={name} label={label} className="mb-3">
       <Form.Control
         {...field}
         {...props}
@@ -14,7 +14,7 @@ const FormField = ({ name, label, type, placeholder, ...props }) => {
         isInvalid={meta.touched && meta.error}
       />
 
-      <Form.Control.Feedback type='invalid'>
+      <Form.Control.Feedback type="invalid">
         {meta.error}
       </Form.Control.Feedback>
     </FloatingLabel>

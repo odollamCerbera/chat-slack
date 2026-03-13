@@ -8,11 +8,16 @@ const ChatHeader = () => {
   const messagesCount = useSelector(selectMessagesCount)
 
   return (
-    <div className='bg-light mb-4 p-3 shadow-sm small'>
-      <p className='m-0'>
-        <b>{t('channels.channelPrefix')} {channelName}</b>
+    <div className="bg-light mb-4 p-3 shadow-sm small">
+      <p className="m-0">
+        <b>
+          {t('channels.channelPrefix')}
+          {channelName}
+        </b>
       </p>
-      <span className='text-muted'> {t('messages.count', { count: messagesCount })}</span>
+      <span className="text-muted">
+        {t('messages.count', { count: messagesCount })}
+      </span>
     </div>
   )
 }

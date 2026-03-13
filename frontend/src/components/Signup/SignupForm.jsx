@@ -16,7 +16,9 @@ const SignupForm = () => {
   const { loading, error } = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  useEffect(() => { dispatch(clearError()) }, [dispatch])
+  useEffect(() => {
+    dispatch(clearError())
+  }, [dispatch])
 
   return (
     <Formik
@@ -31,40 +33,40 @@ const SignupForm = () => {
       }}
     >
       {({ handleSubmit }) => (
-        <Form className='w-50' onSubmit={handleSubmit}>
-          <h1 className='text-center mb-4'>{t('signupPage.signup')}</h1>
+        <Form className="w-50" onSubmit={handleSubmit}>
+          <h1 className="text-center mb-4">{t('signupPage.signup')}</h1>
 
           <FormField
-            name='username'
+            name="username"
             label={t('signupPage.username')}
-            type='text'
+            type="text"
             autoFocus
           />
 
           <FormField
-            name='password'
+            name="password"
             label={t('signupPage.password')}
-            type='password'
+            type="password"
           />
 
           <FormField
-            name='confirmPassword'
+            name="confirmPassword"
             label={t('signupPage.passwordRepeat')}
-            type='password'
+            type="password"
           />
 
           {error && (
-            <Alert variant='danger'>
+            <Alert variant="danger">
               {t(getErrorMessage(error))}
             </Alert>
           )}
 
-          <Button variant='outline-primary' type='submit' className='w-100' disabled={loading}>
+          <Button variant="outline-primary" type="submit" className="w-100" disabled={loading}>
             {t('signupPage.signup')}
           </Button>
         </Form>
       )}
-    </Formik >
+    </Formik>
   )
 }
 
