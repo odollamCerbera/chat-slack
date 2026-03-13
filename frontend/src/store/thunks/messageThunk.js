@@ -13,12 +13,13 @@ export const fetchMessages = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       })
       return response.data
-    } catch (error) {
+    }
+    catch (error) {
       console.log(error)
       toast.error(i18n.t('errors.notifications.fetchMessages'))
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )
 
 export const sendMessage = createAsyncThunk(
@@ -29,11 +30,12 @@ export const sendMessage = createAsyncThunk(
       await axios.post(
         ROUTES.MESSAGES(),
         { body, channelId, username },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { headers: { Authorization: `Bearer ${token}` } },
       )
-    } catch (error) {
+    }
+    catch (error) {
       toast.error(i18n.t('errors.notifications.addMessage'))
       return rejectWithValue(error.response?.status)
     }
-  }
+  },
 )

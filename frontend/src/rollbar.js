@@ -1,7 +1,7 @@
 import Rollbar from 'rollbar'
 
-const hasToken = import.meta.env.VITE_ROLLBAR_ACCESS_TOKEN &&
-  import.meta.env.VITE_ROLLBAR_ACCESS_TOKEN.length > 0
+const hasToken = import.meta.env.VITE_ROLLBAR_ACCESS_TOKEN
+  && import.meta.env.VITE_ROLLBAR_ACCESS_TOKEN.length > 0
 
 export const rollbar = hasToken
   ? new Rollbar({

@@ -11,19 +11,23 @@ const ChannelActions = ({ channel, isActive, onSelect }) => {
   const handleRename = () => dispatch(openModal({ type: 'renameChannel', extraData: channel }))
 
   return (
-    <ButtonGroup className='w-100'>
+    <ButtonGroup className="w-100">
       <Button
         variant={isActive ? 'secondary' : ''}
-        className='w-100 rounded-0 text-start text-truncate flex-grow-0'
+        className="w-100 rounded-0 text-start text-truncate flex-grow-0"
         onClick={() => onSelect(channel.id)}
       >
-        <span className='me-1'>{t('channels.channelPrefix')}</span>
+        <span className="me-1">
+          {t('channels.channelPrefix')}
+        </span>
         {channel.name}
       </Button>
 
       <Dropdown as={ButtonGroup}>
         <Dropdown.Toggle split variant={isActive ? 'secondary' : ''} id={`dropdown-${channel.id}`}>
-          <span className='visually-hidden'>{t('channels.controlChannel')}</span>
+          <span className="visually-hidden">
+            {t('channels.controlChannel')}
+          </span>
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

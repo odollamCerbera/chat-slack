@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 
-const URL = process.env.NODE_ENV === 'production' || import.meta.env.PROD
+const URL = import.meta.env.PROD
   ? window.location.origin
   : 'http://localhost:5001'
 

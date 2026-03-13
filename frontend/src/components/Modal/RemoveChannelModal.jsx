@@ -18,7 +18,8 @@ const RemoveChannelModal = () => {
     try {
       await dispatch(removeChannel(extraData.id)).unwrap()
       handleClose()
-    } finally {
+    }
+    finally {
       setIsSubmitting(false)
     }
   }
@@ -30,15 +31,15 @@ const RemoveChannelModal = () => {
       </Modal.Header>
 
       <Modal.Body>
-        <p className='lead'>{t('channels.removeChannelWarning')}</p>
+        <p className="lead">{t('channels.removeChannelWarning')}</p>
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose} disabled={isSubmitting}>
+        <Button variant="secondary" onClick={handleClose} disabled={isSubmitting}>
           {t('channels.cancel')}
         </Button>
 
-        <Button variant='danger' onClick={handleRemoveChannel} disabled={isSubmitting}>
+        <Button variant="danger" onClick={handleRemoveChannel} disabled={isSubmitting}>
           {t('channels.removeChannel')}
         </Button>
       </Modal.Footer>

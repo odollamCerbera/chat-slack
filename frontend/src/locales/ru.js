@@ -75,5 +75,5 @@ export default {
         renameChannel: 'Ошибка переименования канала',
       },
     },
-  }
+  },
 }

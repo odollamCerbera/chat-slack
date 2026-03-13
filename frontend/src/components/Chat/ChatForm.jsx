@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next'
 import { TbSquareArrowRight } from 'react-icons/tb'
 import { useDispatch, useSelector } from 'react-redux'
 
-
 const ChatForm = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -31,36 +30,37 @@ const ChatForm = () => {
       await dispatch(sendMessage({
         body: leoProfanity.clean(message.trim()),
         channelId: currentChannelId,
-        username
+        username,
       })).unwrap()
       setMessage('')
       inputRef.current?.focus()
-    } finally {
+    }
+    finally {
       setSending(false)
     }
   }
 
   return (
-    < div className='mt-auto px-5 py-3' >
-      <Form onSubmit={handleSubmit} noValidate className='py-1 border rounded-2'>
+    <div className="mt-auto px-5 py-3">
+      <Form onSubmit={handleSubmit} noValidate className="py-1 border rounded-2">
         <InputGroup hasValidation>
           <Form.Control
             ref={inputRef}
-            name='body'
+            name="body"
             aria-label={t('messages.newMessage')}
             placeholder={t('messages.newMessage')}
-            className='border-0 p-0 ps-2'
+            className="border-0 p-0 ps-2"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={e => setMessage(e.target.value)}
             disabled={sending}
           />
 
-          <Button type='submit' variant='outline-secondary' className='btn-group-vertical' disabled={sending}>
+          <Button type="submit" variant="outline-secondary" className="btn-group-vertical" disabled={sending}>
             <TbSquareArrowRight size={25} strokeWidth={1} />
           </Button>
         </InputGroup>
       </Form>
-    </div >
+    </div>
   )
 }
 

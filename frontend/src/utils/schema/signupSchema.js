@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-export const getSignupSchema = (t) => yup.object({
+export const getSignupSchema = t => yup.object({
   username: yup
     .string()
     .trim()

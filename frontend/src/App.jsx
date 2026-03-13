@@ -32,10 +32,10 @@ const App = () => {
 
     socket.connect()
 
-    const handleNewMessage = (message) => dispatch(addMessage(message))
-    const handleNewChannel = (channel) => dispatch(addChannel(channel))
+    const handleNewMessage = message => dispatch(addMessage(message))
+    const handleNewChannel = channel => dispatch(addChannel(channel))
     const handleRemoveChannel = ({ id }) => dispatch(removeChannel(id))
-    const handleRenameChannel = (channel) => dispatch(renameChannel(channel))
+    const handleRenameChannel = channel => dispatch(renameChannel(channel))
 
     socket.on('newMessage', handleNewMessage)
     socket.on('newChannel', handleNewChannel)
@@ -60,7 +60,7 @@ const App = () => {
         <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
       </Routes>
       <ModalRoot />
-      <ToastContainer position='top-right' autoClose={5000} closeOnClick />
+      <ToastContainer position="top-right" autoClose={5000} closeOnClick />
     </BrowserRouter>
   )
 }
