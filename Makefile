@@ -1,7 +1,3 @@
-
-lint:
-	npx eslint .
-
 install:
 	npm ci && cd frontend && npm ci
 
@@ -11,6 +7,6 @@ build:
 start:
 	npm run start
 
-	lint:
+lint:
 	npx eslint .
 	

@@ -9,16 +9,28 @@ import i18n from './i18n'
 import { rollbar } from './rollbar'
 
 // Здесь инициализируем приложение
-const init = async () => (
-  <RollbarProvider instance={rollbar}>
-    <ErrorBoundary fallbackUI={<MaintenancePage />}>
+const init = async () => {
+  if (!rollbar) {
+    return (
       <Provider store={store}>
         <I18nextProvider i18n={i18n}>
           <App />
         </I18nextProvider>
       </Provider>
-    </ErrorBoundary>
-  </RollbarProvider>
-)
+    )
+  }
+
+  return (
+    <RollbarProvider instance={rollbar}>
+      <ErrorBoundary fallbackUI={<MaintenancePage />}>
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <App />
+          </I18nextProvider>
+        </Provider>
+      </ErrorBoundary>
+    </RollbarProvider>
+  )
+}
 
 export default init

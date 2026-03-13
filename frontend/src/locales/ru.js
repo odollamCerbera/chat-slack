@@ -31,6 +31,7 @@ export default {
       channels: 'Каналы',
       channel: 'Имя канала',
       channelPrefix: '#',
+      channelAdd: '+',
       controlChannel: 'Управление каналом',
       createChannel: 'Добавить канал',
       renameChannel: 'Переименовать',
@@ -43,7 +44,8 @@ export default {
       channelRemoved: 'Канал удалён',
     },
     messages: {
-      newMessage: 'Введите сообщение...',
+      newMessage: 'Новое сообщение',
+      inputMessage: 'Введите сообщение...',
       messagePrefix: ': ',
       count_one: '{{ count }} сообщение',
       count_few: '{{ count }} сообщения',
