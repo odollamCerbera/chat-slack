@@ -24,6 +24,17 @@ const RenameChannelModal = () => {
 
   const handleClose = () => dispatch(closeModal())
 
+  const handleRenameChannel = async (values, { setSubmitting }) => {
+    try {
+      const cleanName = leoProfanity.clean(values.name.trim())
+      await dispatch(renameChannel({ id: extraData.id, name: cleanName })).unwrap()
+      handleClose()
+    }
+    finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <>
       <Modal.Header onHide={handleClose} closeButton>
@@ -35,16 +46,7 @@ const RenameChannelModal = () => {
         validationSchema={getChannelSchema(t, existingChannels, extraData.id)}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={async (values, { setSubmitting }) => {
-          try {
-            const cleanName = leoProfanity.clean(values.name.trim())
-            await dispatch(renameChannel({ id: extraData.id, name: cleanName })).unwrap()
-            handleClose()
-          }
-          finally {
-            setSubmitting(false)
-          }
-        }}
+        onSubmit={handleRenameChannel}
       >
         {({ handleSubmit, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>

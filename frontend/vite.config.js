@@ -9,7 +9,6 @@ const __dirname = path.dirname(__filename)
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5002,
     proxy: {
       // Проксируем запросы к API
       '/api': {

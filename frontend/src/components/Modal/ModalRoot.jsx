@@ -18,8 +18,11 @@ const ModalRoot = () => {
   if (!isOpen || !type) return null
 
   const ModalWindow = mapping[type]
+
+  const handleClose = () => dispatch(closeModal())
+
   return (
-    <Modal restoreFocus={false} show={isOpen} onHide={() => dispatch(closeModal())} centered>
+    <Modal restoreFocus={false} show={isOpen} onHide={handleClose} centered>
       <ModalWindow />
     </Modal>
   )

@@ -13,7 +13,11 @@ const ChannelsNavigationHeader = () => {
   return (
     <div className="d-flex mt-1 justify-content-between mb-2 ps-4 pe-2 p-4">
       <b>{t('channels.channels')}</b>
-      <Button onClick={handleOpen} variant="link" className="p-0 text-primary btn-group-vertical">
+      <Button
+        onClick={handleOpen}
+        variant="link"
+        className="p-0 text-primary btn-group-vertical"
+      >
         <span>
           {t('channels.channelAdd')}
         </span>

@@ -11,13 +11,12 @@ const LogoutButton = () => {
   const dispatch = useDispatch()
 
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated)
+  if (!isAuthenticated) return null
 
   const handleLogout = () => {
     dispatch(logout())
     navigate(ROUTES.LOGIN)
   }
-
-  if (!isAuthenticated) return null
 
   return (
     <Button variant="primary" onClick={handleLogout}>

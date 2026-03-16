@@ -9,13 +9,14 @@ const ChannelActions = ({ channel, isActive, onSelect }) => {
 
   const handleRemove = () => dispatch(openModal({ type: 'removeChannel', extraData: channel }))
   const handleRename = () => dispatch(openModal({ type: 'renameChannel', extraData: channel }))
+  const handleSelect = () => onSelect(channel.id)
 
   return (
     <ButtonGroup className="w-100">
       <Button
         variant={isActive ? 'secondary' : ''}
         className="w-100 rounded-0 text-start text-truncate flex-grow-0"
-        onClick={() => onSelect(channel.id)}
+        onClick={handleSelect}
       >
         <span className="me-1">
           {t('channels.channelPrefix')}

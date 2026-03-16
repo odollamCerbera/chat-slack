@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next'
 const MaintenancePage = () => {
   const { t } = useTranslation()
 
+  const handleReload = () => window.location.reload()
+
   return (
     <Container className="text-center mt-5">
       <div className="mb-4">
@@ -17,7 +19,7 @@ const MaintenancePage = () => {
       <p className="text-muted">{t('errorPage.description')}</p>
 
       <div className="d-flex justify-content-center gap-2">
-        <Button variant="primary" onClick={() => window.location.reload()}>
+        <Button variant="primary" onClick={handleReload}>
           {t('errorPage.retryAction')}
         </Button>
         <Button variant="outline-secondary" href={ROUTES.HOME}>

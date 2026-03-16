@@ -8,6 +8,7 @@ const ChatHistory = () => {
   const { t } = useTranslation()
   const messages = useSelector(selectMessagesByCurrentChannel)
   const messagesRef = useRef(null)
+
   useEffect(() => {
     messagesRef.current?.lastElementChild?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])

@@ -16,21 +16,24 @@ const SignupForm = () => {
   const { loading, error } = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   useEffect(() => {
     dispatch(clearError())
   }, [dispatch])
+
+  const handleSignup = async (values) => {
+    const result = await dispatch(register({
+      username: values.username,
+      password: values.password,
+    }))
+    if (register.fulfilled.match(result)) navigate(ROUTES.HOME)
+  }
 
   return (
     <Formik
       initialValues={{ username: '', password: '', confirmPassword: '' }}
       validationSchema={getSignupSchema(t)}
-      onSubmit={async (values) => {
-        const result = await dispatch(register({
-          username: values.username,
-          password: values.password,
-        }))
-        if (register.fulfilled.match(result)) navigate(ROUTES.HOME)
-      }}
+      onSubmit={handleSignup}
     >
       {({ handleSubmit }) => (
         <Form className="w-50" onSubmit={handleSubmit}>

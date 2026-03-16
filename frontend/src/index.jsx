@@ -7,7 +7,6 @@ const app = async () => {
   const root = ReactDOM.createRoot(document.getElementById('root'))
   document.body.classList.add('bg-light')
   root.render(await init())
-  console.log('Bootstrap styles')
 }
 
 app()

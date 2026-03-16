@@ -46,7 +46,7 @@
    npm start
    ```
 
-5. Откройте [http://localhost:5000](http://localhost:5000)
+5. Откройте [http://localhost:5001](http://localhost:5001)
 
 ## Демо
 

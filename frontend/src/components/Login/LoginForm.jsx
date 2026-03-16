@@ -16,9 +16,15 @@ const LoginForm = () => {
   const { loading, error } = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   useEffect(() => {
     dispatch(clearError())
   }, [dispatch])
+
+  const handleLogin = async (values) => {
+    const result = await dispatch(login(values))
+    if (login.fulfilled.match(result)) navigate(ROUTES.HOME)
+  }
 
   return (
     <Formik
@@ -26,10 +32,7 @@ const LoginForm = () => {
       validationSchema={getLoginSchema(t)}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={async (values) => {
-        const result = await dispatch(login(values))
-        if (login.fulfilled.match(result)) navigate(ROUTES.HOME)
-      }}
+      onSubmit={handleLogin}
     >
       {({ handleSubmit }) => (
         <Form onSubmit={handleSubmit}>

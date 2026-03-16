@@ -21,7 +21,7 @@ const ChatForm = () => {
     if (currentChannelId && !isModalOpen) inputRef.current?.focus()
   }, [currentChannelId, sending, isModalOpen])
 
-  const handleSubmit = async (e) => {
+  const handleSendMessage = async (e) => {
     e.preventDefault()
     if (!message.trim() || sending) return
 
@@ -42,7 +42,7 @@ const ChatForm = () => {
 
   return (
     <div className="mt-auto px-5 py-3">
-      <Form onSubmit={handleSubmit} noValidate className="py-1 border rounded-2">
+      <Form onSubmit={handleSendMessage} noValidate className="py-1 border rounded-2">
         <InputGroup hasValidation>
           <Form.Control
             ref={inputRef}

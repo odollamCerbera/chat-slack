@@ -16,6 +16,17 @@ const AddChannelModal = () => {
 
   const handleClose = () => dispatch(closeModal())
 
+  const handleCreateChannel = async (values, { setSubmitting }) => {
+    try {
+      const cleanName = leoProfanity.clean(values.name.trim())
+      await dispatch(createChannel(cleanName)).unwrap()
+      handleClose()
+    }
+    finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <>
       <Modal.Header onHide={handleClose} closeButton>
@@ -27,16 +38,7 @@ const AddChannelModal = () => {
         validationSchema={getChannelSchema(t, existingChannels)}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={async (values, { setSubmitting }) => {
-          try {
-            const cleanName = leoProfanity.clean(values.name.trim())
-            await dispatch(createChannel(cleanName)).unwrap()
-            handleClose()
-          }
-          finally {
-            setSubmitting(false)
-          }
-        }}
+        onSubmit={handleCreateChannel}
       >
         {({ handleSubmit, isSubmitting }) => (
           <Form onSubmit={handleSubmit}>

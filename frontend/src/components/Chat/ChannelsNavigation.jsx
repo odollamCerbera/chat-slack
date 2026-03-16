@@ -26,14 +26,14 @@ const ChannelsNavigation = () => {
                 <ChannelActions
                   channel={channel}
                   isActive={channel.id === currentChannelId}
-                  onSelect={handleSelect}
+                  onSelect={() => handleSelect(channel.id)}
                 />
               )
             : (
                 <Button
                   variant={channel.id === currentChannelId ? 'secondary' : ''}
                   className="w-100 rounded-0 text-start text-truncate"
-                  onClick={() => dispatch(setCurrentChannel(channel.id))}
+                  onClick={() => handleSelect(channel.id)}
                 >
                   <span className="me-1">
                     {t('channels.channelPrefix')}
