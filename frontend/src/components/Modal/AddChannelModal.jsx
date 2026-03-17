@@ -41,7 +41,7 @@ const AddChannelModal = () => {
         onSubmit={handleCreateChannel}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} autocomplete="off">
             <Modal.Body>
               <Form.Group>
                 <FormField

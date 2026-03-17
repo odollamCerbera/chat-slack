@@ -15,14 +15,14 @@ const NotFoundPage = () => {
           alt={t('errorPage.pageNotFound')}
           className="img-fluid w-25"
         />
-        <h1 className="display-3 mb-3">
+        <h1 className="h4 text-muted">
           {t('errorPage.pageNotFound')}
         </h1>
-        <p className="lead mb-4">
+        <p className="text-muted">
           {t('errorPage.suggestAction')}
           &nbsp;
           <Link to={ROUTES.HOME}>
-            {t('errorPage.goToMainPage')}
+            {t('errorPage.mainPage')}
           </Link>
         </p>
       </Col>

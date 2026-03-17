@@ -49,7 +49,7 @@ const RenameChannelModal = () => {
         onSubmit={handleRenameChannel}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} autocomplete="off">
             <Modal.Body>
               <Form.Group>
                 <FormField

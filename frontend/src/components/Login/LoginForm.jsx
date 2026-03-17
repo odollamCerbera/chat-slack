@@ -35,7 +35,7 @@ const LoginForm = () => {
       onSubmit={handleLogin}
     >
       {({ handleSubmit }) => (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} autocomplete="off">
           <h1 className="text-center mb-4">{t('authorization.login')}</h1>
 
           <FormField

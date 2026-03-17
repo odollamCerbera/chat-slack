@@ -42,7 +42,7 @@ const ChatForm = () => {
 
   return (
     <div className="mt-auto px-5 py-3">
-      <Form onSubmit={handleSendMessage} noValidate className="py-1 border rounded-2">
+      <Form onSubmit={handleSendMessage} autocomplete="off" noValidate className="py-1 border rounded-2">
         <InputGroup hasValidation>
           <Form.Control
             ref={inputRef}

@@ -36,7 +36,7 @@ const SignupForm = () => {
       onSubmit={handleSignup}
     >
       {({ handleSubmit }) => (
-        <Form className="w-50" onSubmit={handleSubmit}>
+        <Form className="w-50" onSubmit={handleSubmit} autocomplete="off">
           <h1 className="text-center mb-4">{t('signupPage.signup')}</h1>
 
           <FormField
