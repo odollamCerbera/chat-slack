@@ -1,20 +1,20 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/odollamCerbera/frontend-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/odollamCerbera/frontend-project-12/actions)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=odollamCerbera_chat-slack&metric=bugs)](https://sonarcloud.io/summary/new_code?id=odollamCerbera_chat-slack)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=odollamCerbera_chat-slack&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=odollamCerbera_chat-slack)
 
-# Hexlet Chat
+# Проект чата - "Hexlet Chat"
 
 Чат-приложение с поддержкой множества каналов и обменом сообщениями в реальном времени.
 
-## Возможности
-
+### Основные возможности:
 - **Регистрация и авторизация** - создайте аккаунт и войдите в систему
 - **Каналы** - создавайте, переименовывайте и удаляйте каналы
 - **Сообщения** - обменивайтесь сообщениями в реальном времени
 - **Адаптивный дизайн** - Bootstrap обеспечивает красивый интерфейс
 - **Мониторинг ошибок** - интеграция с Rollbar для отслеживания проблем
 
-## Технологии
-
+## Технологии:
 - **Frontend:** React 18, Redux Toolkit, React Router v6
 - **Реальное время:** Socket.IO-client
 - **Стилизация:** Bootstrap, React Bootstrap
@@ -23,7 +23,11 @@
 - **Сборка:** Vite
 - **Деплой:** Render
 
-## Как запустить локально
+## Демонстрация: 
+
+Попробуйте приложение в действии: [Chat Демо](https://frontend-project-12-4oo9.onrender.com)
+
+## Установка:
 
 1. Клонируйте репозиторий:
    ```bash
@@ -48,11 +52,7 @@
 
 5. Откройте [http://localhost:5001](http://localhost:5001)
 
-## Демо
-
-Приложение доступно по ссылке: [https://frontend-project-12-4oo9.onrender.com](https://frontend-project-12-4oo9.onrender.com)
-
-## Структура проекта
+## Структура проекта:
 
 ```
 src/
@@ -72,7 +72,7 @@ src/
 └── i18n.js         # Конфигурация интернационализации
 ```
 
-## Описание основных файлов
+## Описание основных файлов:
 
 | Файл | Назначение |
 |------|------------|
